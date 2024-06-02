@@ -1,40 +1,49 @@
-import { Component, ViewChild, ElementRef, Input } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  Input,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { ApiService, Video } from '../../../services/api.service';
-import { NgIf } from '@angular/common';
+import { Video } from '../../../services/api.service';
+import { NgIf, NgStyle, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-video-player',
   standalone: true,
-  imports: [MatIcon, NgIf],
+  imports: [MatIcon, NgIf, NgStyle, NgClass],
   templateUrl: './video-player.component.html',
   styleUrl: './video-player.component.scss',
 })
 export class VideoPlayerComponent {
-  @ViewChild('player', { static: true }) videoPlayer:
-    | ElementRef<HTMLVideoElement>
-    | undefined;
-  // video: Video = {} as Video;
-  // isPlaying = false;
+  @ViewChild('player')
+  videoPlayer: ElementRef<HTMLVideoElement> | undefined;
+
   @Input() video: Video = {} as Video;
+  isPlaying = false;
+
+  showVideo() {
+    if (!this.isPlaying) {
+      this.isPlaying = true;
+      this._cdr.detectChanges();
+    }
+  }
+
+  hideVideo() {
+    if (this.isPlaying) {
+      this.isPlaying = false;
+      this._cdr.detectChanges();
+    }
+  }
 
   playVideo() {
-    this.videoPlayer?.nativeElement.play();
+    setTimeout(() => this.videoPlayer?.nativeElement.play(), 500);
   }
 
   stopVideo() {
     this.videoPlayer?.nativeElement.pause();
   }
 
-  // constructor(private _api: ApiService) {
-  //   this._api
-  //     .fetchVideo({
-  //       query: 'car',
-  //       origentation: 'portrait',
-  //       size: 'medium',
-  //     })
-  //     .subscribe((res) => {
-  //       this.video = res.videos[0];
-  //     });
-  // }
+  constructor(private _cdr: ChangeDetectorRef) {}
 }

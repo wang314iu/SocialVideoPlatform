@@ -3,12 +3,13 @@
   flex-direction: column;
   background-color: transparent;
   align-items: center;
+  height: 270px;
 }
 
-// .viewport-wrapper {
-//   min-height: 200px;
-//   min-width: 200px;
-// }
+.video-container {
+  height: 100%;
+  width: 100%;
+}
 
 .player-window {
   width: 100%;

@@ -16,19 +16,38 @@
       Your borswer not support.
     </video>
   </div> -->
-
-  <video
-    class="player-window"
-    #player
-    loop
-    (mouseenter)="playVideo()"
-    (mouseleave)="stopVideo()"
+  <div
+    class="video-container"
+    [ngStyle]="
+      !isPlaying
+        ? {
+            'background-image': 'url(' + video.image + ')',
+            'background-size': 'cover',
+            'background-position': 'center',
+            'background-repeat': 'no-repeat'
+          }
+        : {}
+    "
+    (mouseenter)="showVideo()"
+    (mouseleave)="hideVideo()"
   >
-    <source [src]="video.video_files[0].link" type="video/mp4" />
-    Your borswer not support.
-  </video>
+    <video
+      *ngIf="isPlaying"
+      class="player-window"
+      #player
+      loop
+      (mouseover)="playVideo()"
+      (mouseleave)="stopVideo()"
+    >
+      <source [src]="video.video_files[0].link" type="video/mp4" />
+      Your broswer not support.
+    </video>
+  </div>
 
-  <mat-icon class="play-icon" [class.show]="videoPlayer?.nativeElement?.paused">
+  <mat-icon
+    class="play-icon"
+    [ngClass]="{ show: videoPlayer?.nativeElement?.paused }"
+  >
     play_circle
   </mat-icon>
 </div>
