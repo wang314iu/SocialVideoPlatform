@@ -1,0 +1,38 @@
+<mat-card class="video-card" MatCardAppearance="raised">
+  <!-- <img
+    mat-card-image
+    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+    alt="Photo of a Shiba Inu"
+  /> -->
+  <app-video-player [video]="video"></app-video-player>
+  <div class="user-info">
+    <img
+      mat-card-avatar
+      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+    />
+    <p>
+      <a
+        class="author-link"
+        href="{{ video.user.url }}"
+        rel="noopener noreferrer"
+        target="_blank"
+        >{{ video.user.name }}
+        <mat-icon class="author-link-icon">link</mat-icon>
+      </a>
+    </p>
+  </div>
+  <mat-card-actions class="user-actions">
+    <button mat-icon-button color="warn" aria-label="Favorite video">
+      <mat-icon class="action-icon">favorite</mat-icon>
+    </button>
+    <label>{{ videoReactions?.likes }}</label>
+    <button mat-icon-button color="warn" aria-label="Save video">
+      <mat-icon class="action-icon">bookmark</mat-icon>
+    </button>
+    <label>{{ videoReactions?.collects }}</label>
+    <button mat-icon-button color="warn" aria-label="Save video">
+      <mat-icon class="action-icon">chat</mat-icon>
+    </button>
+    <label>{{ videoReactions?.comments }}</label>
+  </mat-card-actions>
+</mat-card>

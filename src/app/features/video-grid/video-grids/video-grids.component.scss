@@ -1,0 +1,31 @@
+.video-grids {
+  margin: auto;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr; /* 1 column for phone*/
+}
+
+.categories {
+  margin-bottom: 16px;
+}
+
+/* Mediun - tablets */
+@media (min-width: 600px) {
+  .video-grids {
+    grid-template-columns: repeat(2, 1fr); // 2 columns
+  }
+}
+
+/* Large- desktops */
+@media (min-width: 1024px) {
+  .video-grids {
+    grid-template-columns: repeat(3, 1fr); // 2 columns
+  }
+}
+
+/*Extra large screen */
+@media (min-width: 1440px) {
+  .video-grids {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

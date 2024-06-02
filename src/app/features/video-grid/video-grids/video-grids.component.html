@@ -1,0 +1,20 @@
+<div>
+  <mat-chip-listbox
+    aria-label="Color selection"
+    (change)="onCategoryChange($event)"
+    class="categories"
+    [value]="selectedCategory"
+  >
+    @for (category of categories ; track category) {
+    <mat-chip-option>{{ category }}</mat-chip-option>
+    }
+  </mat-chip-listbox>
+
+  <div class="video-grids">
+    @for (video of (data.videos$ | async) ; track video){
+    <app-video-card class="tile" [video]="video" />
+    }
+  </div>
+
+  <!-- <app-video-player /> -->
+</div>

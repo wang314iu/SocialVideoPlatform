@@ -1,0 +1,34 @@
+<div class="video-player">
+  <!-- <div
+    class="viewport-wrapper"
+    [style.background-image]="'url(' + video?.image + ')'"
+  >
+    <video
+      [class.show]="isPlaying"
+      class="player-window"
+      #player
+      width="300px"
+      loop
+      (mouseenter)="playVideo()"
+      (mouseleave)="stopVideo()"
+    >
+      <source [src]="video ? video.video_files[0].link : ''" type="video/mp4" />
+      Your borswer not support.
+    </video>
+  </div> -->
+
+  <video
+    class="player-window"
+    #player
+    loop
+    (mouseenter)="playVideo()"
+    (mouseleave)="stopVideo()"
+  >
+    <source [src]="video.video_files[0].link" type="video/mp4" />
+    Your borswer not support.
+  </video>
+
+  <mat-icon class="play-icon" [class.show]="videoPlayer?.nativeElement?.paused">
+    play_circle
+  </mat-icon>
+</div>

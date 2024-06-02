@@ -1,0 +1,29 @@
+.video-player {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  align-items: center;
+}
+
+// .viewport-wrapper {
+//   min-height: 200px;
+//   min-width: 200px;
+// }
+
+.player-window {
+  width: 100%;
+}
+
+.player-window:hover {
+  cursor: pointer;
+}
+
+.play-icon {
+  position: relative;
+  transform: translateY(-100px);
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+}
