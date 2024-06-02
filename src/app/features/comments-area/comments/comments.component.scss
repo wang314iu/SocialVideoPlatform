@@ -6,6 +6,11 @@
 .comment-header {
   display: flex;
   justify-content: space-between;
+
+  align-items: center;
+}
+
+.comment-name {
   font-weight: bold;
 }
 
@@ -13,6 +18,17 @@
   margin-top: 5px;
   margin-bottom: 5px;
   font-size: smaller;
+}
+
+.comment-user-photo {
+  width: 34px;
+  margin-right: 8px;
+}
+
+.comment-user-wrapper {
+  display: flex;
+  direction: row;
+  align-items: center;
 }
 
 .comment-date {

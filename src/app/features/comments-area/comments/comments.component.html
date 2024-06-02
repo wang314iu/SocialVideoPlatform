@@ -2,7 +2,10 @@
   <h3 style="text-align: center">Comments:</h3>
   <div *ngFor="let comment of data.data" class="comment-container">
     <div class="comment-header">
-      <span class="comment-name">{{ comment.name }}</span>
+      <div class="comment-user-wrapper">
+        <img class="comment-user-photo" src="user.svg" />
+        <span class="comment-name">{{ comment.name }}</span>
+      </div>
       <span class="comment-date">{{ comment.date | date : "short" }}</span>
     </div>
     <div class="comment-body">
