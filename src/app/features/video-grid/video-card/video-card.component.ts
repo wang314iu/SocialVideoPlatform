@@ -31,7 +31,7 @@ export class VideoCardComponent {
     comments: 33,
   } as Reactions;
 
-  generateRandomNumber(upperBound: number) {
-    return Math.round(Math.random() * upperBound);
-  }
+  // generateRandomNumber(upperBound: number) {
+  //   return Math.round(Math.random() * upperBound);
+  // }
 }
