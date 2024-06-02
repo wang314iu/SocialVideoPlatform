@@ -1,0 +1,18 @@
+<div>
+  <h3 style="text-align: center">Comments:</h3>
+  <div *ngFor="let comment of data.data" class="comment-container">
+    <div class="comment-header">
+      <span class="comment-name">{{ comment.name }}</span>
+      <span class="comment-date">{{ comment.date | date : "short" }}</span>
+    </div>
+    <div class="comment-body">
+      <p>{{ comment.comments }}</p>
+    </div>
+    <div class="comment-footer">
+      <span class="thumbs">
+        <button class="thumb-btn">👍 {{ comment.thumbUp }}</button>
+        <button class="thumb-btn">👎 {{ comment.thumbDown }}</button>
+      </span>
+    </div>
+  </div>
+</div>

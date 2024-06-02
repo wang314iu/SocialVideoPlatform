@@ -1,0 +1,45 @@
+.comment-container {
+  padding: 20px 15px;
+  margin-bottom: 20px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.comment-body {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: smaller;
+}
+
+.comment-date {
+  font-style: italic;
+  font-size: smaller;
+}
+
+.comment-footer {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 0.5px solid #cccccc38;
+  padding-bottom: 20px;
+}
+
+.thumbs {
+  display: flex;
+  gap: 10px;
+}
+
+.thumb-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+}
+
+.thumb-btn:hover {
+  color: white;
+}

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { MockComment } from '../features/comments-area/comments/comments.component';
+import { map } from 'rxjs';
 
 export type Query =
   | 'ocean'
@@ -63,6 +65,18 @@ export class ApiService {
     console.log('param', params);
 
     return this._http.get<VideoResponse>(this.url, options);
+  }
+
+  getMock() {
+    // todo fix this
+    const url = 'mock.json';
+    return this._http.get<MockComment[]>(url).pipe(
+      map((res) => {
+        const total = res.length;
+        const random = Math.ceil(Math.random() * total);
+        return res[random];
+      })
+    );
   }
 
   constructor(private _http: HttpClient) {}

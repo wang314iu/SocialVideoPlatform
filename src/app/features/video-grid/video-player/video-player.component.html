@@ -46,7 +46,7 @@
 
   <mat-icon
     class="play-icon"
-    [ngClass]="{ show: videoPlayer?.nativeElement?.paused }"
+    [ngClass]="{ show: !isPlaying || videoPlayer?.nativeElement?.paused }"
   >
     play_circle
   </mat-icon>

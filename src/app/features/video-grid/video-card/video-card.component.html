@@ -29,10 +29,15 @@
     <label [style]="{ fontSize: '12px', transform: 'translateX(-5px)' }"
       >{{ videoReactions.collects }} k</label
     >
-    <button mat-icon-button color="warn" aria-label="Save video">
+    <button
+      mat-icon-button
+      color="warn"
+      aria-label="Save video"
+      (click)="onOpenComments($event)"
+    >
       <mat-icon class="action-icon">chat</mat-icon>
     </button>
-    <label [style]="{ fontSize: '11px', transform: 'translateX(-5px)' }"
+    <label [style]="{ fontSize: '12px', transform: 'translateX(-5px)' }"
       >{{ videoReactions.comments }} k</label
     >
   </mat-card-actions>
