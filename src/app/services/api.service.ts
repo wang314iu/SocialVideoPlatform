@@ -51,6 +51,7 @@ export class ApiService {
 
   fetchVideo(p: RequestParams) {
     let params = new HttpParams();
+    params = params.set('per_page', '40');
     for (const [key, val] of Object.entries(p)) {
       params = params.set(key, val);
     }
@@ -62,7 +63,7 @@ export class ApiService {
       },
     };
 
-    console.log('param', params);
+    // console.log('param', params);
 
     return this._http.get<VideoResponse>(this.url, options);
   }
