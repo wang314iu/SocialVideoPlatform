@@ -12,7 +12,7 @@
 
   <div class="video-grids">
     @for (video of (data.videos$ | async) ; track video){
-    <app-video-card class="tile" [video]="video" />
+    <app-video-card [video]="video" />
     }
   </div>
 
