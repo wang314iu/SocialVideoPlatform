@@ -16,7 +16,7 @@ export function LoadingInterceptor(
   return next(req).pipe(
     finalize(() => {
       requestCnt--;
-      requestCnt === 0 && loader.close();
+      requestCnt === 0 && loader.close(), 300;
     })
   );
 }

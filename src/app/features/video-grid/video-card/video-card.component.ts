@@ -36,16 +36,20 @@ export class VideoCardComponent {
     collects: 11,
     comments: 33,
   } as Reactions;
+  commentRef: any;
 
   onOpenComments($event: MouseEvent) {
     $event.preventDefault();
-    this._api
-      .getMock()
-      .subscribe((res) =>
-        this._commentsSheet.open(CommentsComponent, { data: res })
-      );
-  }
+    this._api.getMock().subscribe((res) => {
+      this.commentRef = this._commentsSheet.open(CommentsComponent, {
+        data: res,
+      });
 
+      this.commentRef.instance.closeComments = () => {
+        this.commentRef.dismiss();
+      };
+    });
+  }
   constructor(
     private _commentsSheet: MatBottomSheet,
     private _api: ApiService

@@ -1,4 +1,7 @@
 <div>
+  <button mat-icon-button class="close-btn" (click)="closeComments()">
+    <mat-icon>cancel</mat-icon>
+  </button>
   <h3 style="text-align: center">Comments:</h3>
   <div *ngFor="let comment of data.data" class="comment-container">
     <div class="comment-header">

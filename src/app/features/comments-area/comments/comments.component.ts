@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, Inject, Input } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { NgFor, DatePipe } from '@angular/common';
 import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 export interface Comment {
   commentId: number;
   name: string;
@@ -18,11 +19,13 @@ export interface MockComment {
 @Component({
   selector: 'app-comments',
   standalone: true,
-  imports: [NgFor, DatePipe],
+  imports: [NgFor, DatePipe, MatButtonModule, MatIconModule],
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.scss',
 })
 export class CommentsComponent {
-  // @Input() commentsList: MockComment = {} as MockComment;
+  // a place holder for override
+  closeComments() {}
+
   constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: MockComment) {}
 }
