@@ -1,17 +1,28 @@
 .video-player {
-  display: flex;
-  flex-direction: column;
-  background-color: transparent;
-  align-items: center;
+  height: max-content;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
 }
 
-.video-container {
+.stop-playing {
+  // to make play icon absolute positioning work
+  position: relative;
   width: 100%;
-  height: fit-content;
-}
 
-.video-img {
-  width: 100%;
+  .play-icon {
+    color: lightgrey;
+    z-index: 99;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
+
+  .video-img {
+    width: 100%;
+    margin: 5px 0;
+  }
 }
 
 .player-window {
@@ -20,14 +31,4 @@
 
 .player-window:hover {
   cursor: pointer;
-}
-
-.play-icon {
-  position: relative;
-  transform: translateY(-100px);
-  visibility: hidden;
-
-  &.show {
-    visibility: visible;
-  }
 }

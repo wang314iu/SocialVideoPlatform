@@ -1,29 +1,17 @@
-<div class="video-player">
-  <div
-    class="video-container"
-    (mouseenter)="showVideo()"
-    (mouseleave)="hideVideo()"
-  >
-    <img *ngIf="!isPlaying" class="video-img" src="{{ video.image }}" />
-    <video
-      *ngIf="isPlaying"
-      class="player-window"
-      #player
-      loop
-      (mouseover)="playVideo()"
-      (mouseleave)="stopVideo()"
-      (fullscreenchange)="onFullScreenChange()"
-      controls
-    >
-      <source [src]="video.video_files[0].link" type="video/mp4" />
-      Your browser not support video.
-    </video>
+<div class="video-player" (mouseenter)="showVideo()" (mouseleave)="hideVideo()">
+  <div *ngIf="!isPlaying" class="stop-playing">
+    <img class="video-img" src="{{ video.image }}" />
+    <mat-icon class="play-icon"> play_circle </mat-icon>
   </div>
-
-  <mat-icon
-    class="play-icon"
-    [ngClass]="{ show: !isPlaying && videoPlayer?.nativeElement?.paused }"
+  <video
+    *ngIf="isPlaying"
+    class="player-window"
+    #player
+    loop
+    (mouseover)="playVideo()"
+    (mouseleave)="stopVideo()"
   >
-    play_circle
-  </mat-icon>
+    <source [src]="video.video_files[0].link" type="video/mp4" />
+    Your browser not support video.
+  </video>
 </div>

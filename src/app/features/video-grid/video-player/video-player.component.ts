@@ -22,7 +22,6 @@ export class VideoPlayerComponent {
 
   @Input() video: Video = {} as Video;
   isPlaying = false;
-  isFullScreen = false;
 
   showVideo() {
     if (!this.isPlaying) {
@@ -32,12 +31,9 @@ export class VideoPlayerComponent {
   }
 
   hideVideo() {
-    if (this.isFullScreen) return;
-
     if (this.isPlaying) {
       this.isPlaying = false;
       this._cdr.detectChanges();
-      // console.log('hide it');
     }
   }
 
@@ -46,18 +42,8 @@ export class VideoPlayerComponent {
   }
 
   stopVideo() {
-    if (this.isFullScreen) return;
-
     this.videoPlayer?.nativeElement.pause();
     // console.log('stop it', this.videoPlayer);
-  }
-
-  onFullScreenChange() {
-    this.isFullScreen = !this.isFullScreen;
-
-    if (this.isFullScreen === false) {
-      this.stopVideo();
-    }
   }
 
   // fixing full screen issue
